@@ -41,8 +41,8 @@ class Control_model():
                            self.w2_t * abs(self.y_true_t-self.y_pred_t))
 
     def refer_model(self, x1_t, x2_t):
-        beta = 1
-        y_pred_t1_next = beta * exponential_smoothing(0.8, x1_t) #+ (1-beta) * pso_linear(x2_t)
+        beta = 0.5
+        y_pred_t1_next = beta * exponential_smoothing(0.8, x1_t) + (1-beta) * pso_linear(x2_t)
         return y_pred_t1_next
 
     def run_model(self):
